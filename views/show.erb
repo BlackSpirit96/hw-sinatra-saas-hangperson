@@ -1,24 +1,36 @@
-<h2>Guess a letter</h2>
+<h2>Guess a letter</h2><br/>
 
 <% if flash[:message] %>
   <p>
-    <span class="error"><%= flash[:message] %></span>
+    <span class="alert alert-danger" role="alert"><%= flash[:message] %></span>
   </p>
+  <br/>
 <% end %>
 
-<p>
-  Wrong Guesses:
-  <span class="guesses"><%= @game.wrong_guesses %></span>
-</p>
+<div class="panel panel-danger">
+  <div class="panel-heading">
+    <h3 class="panel-title">Wrong Guesses:</h3>
+  </div>
+  <div class="panel-body">
+    <h1><span class="label label-danger"><%= @game.wrong_guesses %></span></h1>
+  </div>
+</div>
 
-<p>
-  Word so far:
-  <span class="word"><%= @game.word_with_guesses %></span>
-</p>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Word so far:</h3>
+  </div>
+  <div class="panel-body">
+    <h1><span class="label label-info"><%= @game.word_with_guesses %></span></h1>
+  </div>
+</div>
 
-<form action="/guess" method="post">
-  <input type="text" size="1" name="guess" autocomplete="off"/>
-  <input type="submit" value="Guess!"/>
+<form action="/guess" method="post" class="form-inline">
+  <div class="form-group">
+    <label for="guess">Enter letter</label>
+    <input type="text" size="1" name="guess" autocomplete="off"/>
+  </div>
+  <input class="btn btn-default" type="submit" value="Guess!"/>
 </form>
 
 <%= erb :new %>

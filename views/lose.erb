@@ -1,9 +1,13 @@
-<h1>Sorry, you lose!</h1>
+<div class="panel panel-danger">
+  <div class="panel-heading">
+    <h1>Sorry, you lose!</h1>
+  </div>
+  <div class="panel-body">
+    <h2>The word was <span class="label label-info"><%= @game.word %></span></h2>
+  </div>
+</div>
 
-<p>
-   The word was
-   <span class="lose"><%= @game.word %></span>
-</p>
+
 
 <%= erb :new %>
 
